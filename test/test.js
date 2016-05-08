@@ -1,9 +1,17 @@
 var assert = require('assert');
-describe('Array', function() {
-    describe('#indexOf()', function () {
-        it('should return -1 when the value is not present', function () {
-            assert.equal(-1, [1,2,3].indexOf(5));
-            assert.equal(-1, [1,2,3].indexOf(0));
-        });
-    });
+var request = require('supertest');
+var app = require('./../app');
+describe('GET /', function(){
+    it('200 response', function(done){
+        request(app)
+            .get('/')
+            .expect(200, done);
+    })
+});
+describe('GET /users', function(){
+    it('200 response', function(done){
+        request(app)
+            .get('/users')
+            .expect(200, done);
+    })
 });
